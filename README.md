@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JobTracker Pro - Application Tracking System
 
-## Getting Started
+A modern, full-stack application tracking system built with Next.js, Prisma, and PostgreSQL.
 
-First, run the development server:
+## 🚀 Quick Start
+
+### Option 1: Docker (Recommended for Testing)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone <your-repo-url>
+cd jobtracker-pro
+
+# Copy environment variables
+cp env.example .env
+
+# Edit .env with your configuration
+nano .env
+
+# Deploy with one command
+./deploy.sh
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Option 2: Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Set up environment variables
+cp env.example .env
+# Edit .env with your database configuration
 
-## Learn More
+# Set up database
+npm run db:generate
+npm run db:push
 
-To learn more about Next.js, take a look at the following resources:
+# Start development server
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Visit [http://localhost:3001](http://localhost:3001) to see your application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📋 Prerequisites
 
-## Deploy on Vercel
+- Node.js 18+
+- npm or yarn
+- Docker and Docker Compose (for containerized deployment)
+- PostgreSQL database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+
+# Database
+npm run db:generate  # Generate Prisma client
+npm run db:push      # Push schema to database
+npm run db:migrate   # Run database migrations
+npm run db:studio    # Open Prisma Studio
+
+# Docker
+npm run docker:build        # Build Docker image
+npm run docker:run          # Run Docker container
+npm run docker:compose      # Start with Docker Compose
+npm run docker:compose:down # Stop Docker Compose
+```
+
+## 🚀 Deployment
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### Quick Deployment Options:
+
+1. **Vercel** (Recommended)
+   - Connect your GitHub repository
+   - Configure environment variables
+   - Automatic deployments
+
+2. **Railway**
+   - Connect your GitHub repository
+   - Add PostgreSQL service
+   - Automatic deployments
+
+3. **Docker**
+   - Use the provided Docker Compose files
+   - Suitable for self-hosted deployments
+
+## 🔧 Environment Variables
+
+Copy `env.example` to `.env` and configure:
+
+```env
+DATABASE_URL="postgresql://username:password@localhost:5432/jobtracker_pro"
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret-key-here"
+```
+
+## 📊 Database
+
+This project uses PostgreSQL with Prisma ORM. The database schema is defined in `prisma/schema.prisma`.
+
+## 🔐 Authentication
+
+The application uses NextAuth.js for authentication. Configure OAuth providers in your environment variables.
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # Next.js App Router
+│   ├── api/            # API routes
+│   ├── auth/           # Authentication pages
+│   └── ...
+├── components/         # React components
+├── lib/               # Utility libraries
+└── generated/         # Generated Prisma client
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
