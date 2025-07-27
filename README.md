@@ -1,6 +1,15 @@
 # JobTracker Pro - Application Tracking System
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/jobtracker-pro)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A modern, full-stack application tracking system built with Next.js, Prisma, and PostgreSQL.
+
+## 🚀 Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/jobtracker-pro)
+
+**One-click deployment to Vercel with automatic database setup!**
 
 ## 🚀 Quick Start
 
